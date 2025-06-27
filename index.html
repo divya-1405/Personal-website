@@ -4,16 +4,12 @@
     <meta charset="UTF-8">
     <title>Divya's Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
+        body {
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
             padding: 0;
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f7f9fc;
+            background-color: #f0f4f8;
             transition: background 0.5s, color 0.5s;
         }
 
@@ -24,69 +20,56 @@
 
         #toggleMode {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #ff6f61;
+            top: 10px;
+            right: 10px;
+            background: #555;
             color: white;
             padding: 10px 15px;
             border: none;
-            border-radius: 30px;
+            border-radius: 20px;
             cursor: pointer;
             z-index: 200;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            font-weight: 600;
         }
 
         #toggleMode:hover {
-            background: #e55447;
+            background: #333;
         }
 
+        /* Intro Section */
         .intro {
             text-align: center;
-            padding: 120px 20px 60px;
-            background: linear-gradient(to right, #1da2d8, #93f9b9);
+            padding: 100px 20px 60px;
+            background: linear-gradient(to right, #2193b0, #6dd5ed);
             color: white;
             animation: fadeInUp 1.2s ease-out;
         }
 
-        .intro .profile-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .intro .profile-container .img-border {
-            background: #ffffff;
-            padding: 8px;
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-            margin-bottom: 25px;
-        }
-
-        .intro .profile-container img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
         .intro h1 {
-            font-size: 3.5em;
-            font-weight: 700;
-            margin-bottom: 15px;
+            font-size: 3em;
+            margin-bottom: 10px;
         }
 
         .intro p {
-            font-size: 1.3em;
+            font-size: 1.2em;
             font-style: italic;
-            letter-spacing: 0.5px;
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Menu Buttons */
         .menu {
             display: flex;
             justify-content: center;
-            background-color: #1b1f31;
+            background-color: #2e3b55;
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -94,166 +77,138 @@
         }
 
         .menu button {
-            background-color: #1ecbe1;
+            background-color: #4db6ac;
             border: none;
             color: white;
             padding: 10px 20px;
             margin: 0 10px;
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: 0.3s;
         }
 
         .menu button:hover {
-            background-color: #1399aa;
+            background-color: #00796b;
         }
 
         .dark-mode .menu {
-            background-color: #1f1f1f;
+            background-color: #1e1e2e;
         }
 
         .section {
             display: none;
-            padding: 50px 60px;
-            margin: 30px auto;
-            max-width: 900px;
-            border-radius: 16px;
+            padding: 40px 60px;
             background-color: #ffffff;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             animation: fadeIn 0.6s ease-in;
         }
 
         .section h2 {
-            font-size: 28px;
             color: #2e3b55;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .section p, .section li {
             color: #37474f;
-            font-size: 17px;
-            line-height: 1.7;
-        }
-
-        .dark-mode .section {
-            background-color: #1e1e1e;
-            color: #c7c7c7;
-        }
-
-        .dark-mode .section h2 {
-            color: #ffffff;
-        }
-
-        a {
-            color: #0066cc;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .dark-mode a {
-            color: #80deea;
-        }
-
-        .project-item {
-            margin-bottom: 40px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 20px;
-        }
-
-        .project-item h3 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
-            margin-top: 15px;
-            background-color: black;
-            border-radius: 10px;
-        }
-
-        .video-container iframe,
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+            font-size: 16px;
         }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        .dark-mode .section {
+            background-color: #1f1f1f;
+            color: #ddd;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+        }
+
+        .dark-mode .section h2,
+        .dark-mode .section p,
+        .dark-mode .section li {
+            color: #c7c7c7;
+        }
+
+        a {
+            color: #00838f;
+        }
+
+        .dark-mode a {
+            color: #80deea;
+        }
+        .profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
     </style>
 </head>
 <body>
 
+<!-- Dark Mode Toggle -->
 <button id="toggleMode"><i class="fas fa-moon"></i> Dark Mode</button>
 
+<!-- Intro Section -->
+<!-- Intro Section -->
 <div class="intro">
-    <div class="profile-container">
-        <div class="img-border">
-            <img src="https://via.placeholder.com/300x300.png?text=Your+Photo" alt="Divya's Profile Photo">
-        </div>
-        <h1>Hello, I'm Divya sri Tota</h1>
-        <p>Web Developer | BI Analyst | IT Enthusiast</p>
-    </div>
+    <img src="C:\Users\totad\Downloads\WhatsApp Image 2025-06-21 at 9.20.33 PM.jpeg"alt="Divya Sri Profile Photo" class="profile-pic">
+    <h1>Hello, I'm Divya Sri Tota</h1>
+    <p>Web Developer | BI Analyst | IT Enthusiast</p>
 </div>
 
-<!-- Rest of your code remains unchanged -->
 
-
-
-
+<!-- Menu -->
 <div class="menu">
-    <button onclick="showSection('about')">About Me</button>
-    <button onclick="showSection('personal')">Personal Info</button>
-    <button onclick="showSection('skills')">Skills</button>
-    <button onclick="showSection('education')">Education</button>
-    <button onclick="showSection('projects')">Projects</button>
-    <button onclick="showSection('contact')">Contact</button>
+    <button onclick="showSection('about')"><i class="fas fa-user"></i> About Me</button>
+    <button onclick="showSection('personal')"><i class="fas fa-id-card"></i> Personal Info</button>
+    <button onclick="showSection('skills')"><i class="fas fa-cogs"></i> Skills</button>
+    <button onclick="showSection('education')"><i class="fas fa-graduation-cap"></i> Education</button>
+    <button onclick="showSection('projects')"><i class="fas fa-laptop-code"></i> Projects</button>
+    <button onclick="showSection('contact')"><i class="fas fa-envelope"></i> Contact</button>
 </div>
 
+
+<!-- Sections -->
 <div id="about" class="section">
-    <h2>About Me</h2>
+    <h2><i class="fas fa-user"></i> About Me</h2>
     <p>I'm <strong>Divya Sri</strong>, an Information Technology student passionate about designing user-friendly websites, developing cloud-based applications, and using data insights to drive decisions.</p>
 </div>
 
 <div id="personal" class="section">
-    <h2>Personal Info</h2>
+    <h2><i class="fas fa-id-card"></i> Personal Info</h2>
     <p><strong>Name:</strong> Divya Sri Tota</p>
     <p><strong>Branch:</strong> Information Technology</p>
-    <p><strong>Email:</strong> totadivyasri1405@gmail.com</p>
+    <p><strong>Email:</strong>  totadivyasri1405@gmail.com</p>
 </div>
 
 <div id="skills" class="section">
-    <h2>Skills</h2>
+    <h2><i class="fas fa-cogs"></i> Skills</h2>
     <ul>
         <li>HTML, CSS, JavaScript</li>
         <li>Python</li>
-        <li>MySQL</li>
-        <li>GitHub & Version Control</li>
+        <li>MY SQL</li>
+        <li>GGitHub & Version Control</li>
         <li>Power BI (Data Visualization)</li>
         <li>Responsive Web Design</li>
     </ul>
 </div>
 
 <div id="education" class="section">
-    <h2>Education</h2>
+    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
     <ul>
-        <li>10th Grade - 99% - Sri Chaitanya School (BSEAP)</li>
-        <li>12th Grade - 85% - Sri Chaitanya Junior College (BIEAP)</li>
+        <li>10th Grade - 99% - Sri Chaitanya School </li>
+        <li>12th Grade - 85% - Sri Chaitanya Junior College </li>
         <li>B.Tech in Information Technology (2022 - 2026) - MVGR College of Engineering</li>
     </ul>
 </div>
@@ -262,32 +217,29 @@
     <h2>Projects</h2>
 
     <div class="project-item">
-        <h3>Online Store using HTML, CSS, JavaScript</h3>
-        <p>A simple e-commerce website front-end demonstrating responsive design, layout structuring, and user interaction using web fundamentals.</p>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=abcdefghijk" allowfullscreen></iframe>
-        </div>
-        <p>
-            <a href="https://github.com/divya-1405/online-store-demo" target="_blank">GitHub Repo</a> |
-            <a href="#">Live Demo</a>
-        </p>
+    <h3>Online Store using HTML, CSS, JavaScript</h3>
+    <p>A simple e-commerce website front-end demonstrating responsive design, layout structuring, and user interaction using web fundamentals.</p>
+    <div class="video-container">
+        <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/9WPm26ZKQuU" 
+                title="YouTube video player" 
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
     </div>
-
-    <div class="project-item">
-        <h3>Power BI Data Dashboard</h3>
-        <p>Created an interactive dashboard for visualizing business performance using Power BI. Includes slicers, filters, and KPIs for decision-makers.</p>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/another_video_id?si=mnopqrstuv" allowfullscreen></iframe>
-        </div>
-        <p>
-            <a href="https://github.com/divya-1405/powerbi-dashboard-analysis" target="_blank">GitHub Repo</a> |
-            <a href="#">Live Dashboard</a>
-        </p>
-    </div>
+    <p>
+        <a href="https://github.com/divya-1405/Twitter-Analytics-Dashboard" target="_blank">GitHub Repo</a> 
+        
+    </p>
 </div>
 
+
+
+
+
 <div id="contact" class="section">
-    <h2>Contact</h2>
+    <h2><i class="fas fa-envelope"></i> Contact</h2>
     <p><strong>Email:</strong> totadivyasri1405@gmail.com</p>
     <p><strong>Phone:</strong> +91-9182162349</p>
     <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/divya-sri-tota-9851002a1" target="_blank">linkedin.com/in/divya-sri-tota</a></p>
@@ -302,8 +254,11 @@
         }
         document.getElementById(id).style.display = 'block';
     }
+
+    // Show About by default
     showSection('about');
 
+    // Toggle Dark Mode
     const toggleBtn = document.getElementById('toggleMode');
     toggleBtn.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
